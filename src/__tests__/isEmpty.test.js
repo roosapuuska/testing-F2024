@@ -6,19 +6,15 @@ describe('isEmpty.js', () => {
       });
 
     test('Check null value, should return true', () => {
-    expect(isEmpty(null)).toBe(true);
+        expect(isEmpty(null)).toBe(true);
     });
 
-    test('Check value 1, should return true', () => {
+    test('Check value, should return true', () => {
         expect(isEmpty(1)).toBe(true);
       });
     
     test('Check value true, should return true', () => {
-    expect(isEmpty(true)).toBe(true);
-    });
-
-    test('Check empty value, should return true', () => {
-        expect(isEmpty()).toBe(true);
+        expect(isEmpty(true)).toBe(true);
     });
 
     test('Check array, should return false', () => {

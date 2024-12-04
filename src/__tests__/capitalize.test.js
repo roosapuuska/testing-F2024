@@ -1,35 +1,37 @@
 import capitalize from '../capitalize.js'
 
 describe('capitalized.js', () => {
-    test('Make first letter upper case', () => {
+    test('Should make first letter upper case', () => {
         expect(capitalize('fred')).toBe('Fred');
       });
     
-    test('If first case is already upper case, return same', () => {
+    test('Should return same value', () => {
         expect(capitalize('Fred')).toBe('Fred');
     });
 
-    test('If whole word is upper case', () => {
+    test('Should return only first letter upper case', () => {
         expect(capitalize('FRED')).toBe('Fred');
     })
 
-    test('Change only first letter in sentence', () => {
+    test('Should change only first letter in sentence', () => {
         expect(capitalize('hello fred')).toBe('Hello fred');
+        expect(capitalize('well hello fred')).toBe('Well hello fred');
     })
 
-    test('Work when only one character is given', () => {
+    test('Should work when only one character is given', () => {
         expect(capitalize('f')).toBe('F');
     })
 
-    test('Return empty string if input is empty', () => {
+    test('Should return empty string if input is empty', () => {
         expect(capitalize('')).toBe('');
     });
 
-    test('Do not change anything if first character is special', () => {
+    test('Should not change anything if first character is special', () => {
         expect(capitalize('!fred')).toBe('!fred');
+        expect(capitalize('1fred')).toBe('1fred');
     })
 
-    test('Return empty string when nothing is given', () => {
+    test('Should return empty string when nothing is given', () => {
         expect(capitalize()).toBe('');
     })
 })

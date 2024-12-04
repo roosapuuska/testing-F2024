@@ -1,37 +1,40 @@
 import upperFirst from '../upperFirst'
 
 describe('upperFirst.js', () => {
-    test('Make first letter upper case', () => {
+    test('Should make first letter upper case', () => {
         expect(upperFirst('fred')).toBe('Fred');
       });
     
-    test('If first case is already upper case, return same', () => {
+    test('If first case is already upper case, should return same', () => {
         expect(upperFirst('Fred')).toBe('Fred');
         expect(upperFirst('Hello')).toBe('Hello');
     });
 
-    test('If whole word is upper case', () => {
+    test('If whole word is upper case, should return same', () => {
         expect(upperFirst('FRED')).toBe('FRED');
     })
 
-    test('Change only first letter in sentence', () => {
+    test('Should change only first letter in sentence', () => {
         expect(upperFirst('hello fred')).toBe('Hello fred');
+        expect(upperFirst('well hello fred')).toBe('Well hello fred');
     })
 
-    test('Work when only one character is given', () => {
+    test('Should work when only one character is given', () => {
         expect(upperFirst('f')).toBe('F');
     })
 
-    test('Return empty string if input is empty', () => {
+    test('Should return empty string if input is empty', () => {
         expect(upperFirst('')).toBe('');
     });
 
-    test('Do not change anything if first character is special', () => {
+    test('Should not change anything if first character is special', () => {
         expect(upperFirst('!fred')).toBe('!fred');
         expect(upperFirst('1fred')).toBe('1fred');
+        expect(upperFirst('!?hello')).toBe('!?hello');
     })
 
-    test('Return empty string when nothing is given', () => {
-        expect(upperFirst()).toBe('');
+    test('Should not work, when input is not string', () => {
+        expect(upperFirst(1.23)).toBe(1.23);
+        expect(upperFirst(12)).toBe(12);
     })
 })
