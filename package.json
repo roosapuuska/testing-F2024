@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "test-cov": "nyc jest",
-    "report": "nyc report --reporter=text-lcov > coverage.lcov"
+    "test-cov": "c8 jest",
+    "report": "c8 report --reporter=text-lcov > coverage.lcov"
   },
   "author": "",
   "license": "MIT",
@@ -17,26 +17,26 @@
     "babel-jest": "^29.7.0",
     "c8": "^10.1.2",
     "coveralls": "^3.1.1",
-    "jest": "^29.7.0",
-    "nyc": "^17.1.0"
+    "jest": "^29.7.0"
   },
-  "nyc": {
+  "c8": {
     "include": [
-      "toString.js",
-      "ceil.js",
-      "filter.js",
-      "eq.js",
-      "add.js",
-      "upperFirst.js",
-      "drop.js",
-      "capitalize.js",
-      "get.js",
-      "isEmpty.js"
+      "src/toString.js",
+      "src/ceil.js",
+      "src/filter.js",
+      "src/eq.js",
+      "src/add.js",
+      "src/upperFirst.js",
+      "src/drop.js",
+      "src/capitalize.js",
+      "src/get.js",
+      "src/isEmpty.js"
     ],
     "exclude": [
       "node_modules/**",
       "test/**",
-      "coverage/**"
+      "coverage/**",
+      "*.test.js"
     ],
     "reporter": [
       "text",
