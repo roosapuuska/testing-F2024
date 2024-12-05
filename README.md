@@ -1,3 +1,3 @@
 # testing-F2024
 
-[![Coverage Status](https://coveralls.io/repos/github/USERNAME/REPOSITORY/badge.svg?branch=main)](https://coveralls.io/github/USERNAME/REPOSITORY?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/roosapuuska/testing-F2024/badge.svg?branch=main)](https://coveralls.io/github/roosapuuska/testing-F2024?branch=main)
