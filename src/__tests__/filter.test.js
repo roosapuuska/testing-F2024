@@ -22,11 +22,6 @@ describe('filter', () => {
     expect(result).toEqual([1, 2, 3, 4]);
   });
 
- /*  test('handles empty arrays correctly', () => {
-    const result = filter([], () => true);
-    expect(result).toEqual([]);
-  }); */
-
   test('handles null or undefined arrays', () => {
     expect(filter(null, () => true)).toEqual([]);
     expect(filter(undefined, () => true)).toEqual([]);
@@ -34,7 +29,7 @@ describe('filter', () => {
 
   test('handles invalid predicate gracefully', () => {
     const numbers = [1, 2, 3];
-    const result = filter(numbers, null); // Invalid predicate
+    const result = filter(numbers, null); 
     expect(result).toEqual([]);
   });
 
@@ -49,7 +44,7 @@ describe('filter', () => {
 
   test('returns elements that pass the predicate for array of primitives', () => {
     const numbers = [1, 2, 3, 4, 5];
-    const result = filter(numbers, (n) => n % 2 === 0); // Even numbers
+    const result = filter(numbers, (n) => n % 2 === 0); 
     expect(result).toEqual([2, 4]);
   });
 

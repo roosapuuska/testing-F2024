@@ -1,21 +1,44 @@
-name: Unit tests
-on: push
+name: Node.js CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
 jobs:
-  lint:
-    name: Run unit tests
+  run-tests:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./src/__tests__
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
-      - name: Checkout git repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm test -- --coverage
+      - name: Parallel Coveralls
+        if: always()
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: run-${{ matrix.node-version }}
+          parallel: true
 
-      - name: Install dependencies
-        run: npm ci
+  coveralls:
+    name: Coveralls Finish
+    needs: run-tests
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finish
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
