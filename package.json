@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "test-cov": "jest --coverage"
+    "test-cov": "nyc jest",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov"
   },
   "author": "",
   "license": "MIT",
@@ -14,7 +15,32 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
+    "coveralls": "^3.1.1",
     "jest": "^29.7.0",
     "nyc": "^17.1.0"
+  },
+  "nyc": {
+    "include": [
+      "toString.js",
+      "ceil.js",
+      "filter.js",
+      "eq.js",
+      "add.js",
+      "upperFirst.js",
+      "drop.js",
+      "capitalize.js",
+      "get.js",
+      "isEmpty.js"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "test/**",
+      "coverage/**"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "all": true
   }
 }
