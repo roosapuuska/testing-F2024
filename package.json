@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "jest",
-    "test-cov": "c8 jest",
-    "report": "c8 report --reporter=text-lcov > coverage.lcov"
-  },
+"scripts": {
+  "test": "jest",
+  "test-cov": "jest --coverage",
+  "report": "jest --coverage --coverageReporters=lcov"
+},
+
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -16,7 +17,6 @@
     "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
     "c8": "^10.1.2",
-    "coveralls": "^3.1.1",
     "jest": "^29.7.0"
   },
   "c8": {

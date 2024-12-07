@@ -15,19 +15,23 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
 
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+        
       - run: npm ci
       - run: npm test -- --coverage
+      
       - name: Parallel Coveralls
         if: always()
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
           flag-name: run-${{ matrix.node-version }}
           parallel: true
 
@@ -40,5 +44,5 @@ jobs:
       - name: Coveralls Finish
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
           parallel-finished: true
