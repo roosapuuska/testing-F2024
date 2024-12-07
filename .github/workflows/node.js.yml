@@ -29,7 +29,8 @@ jobs:
 
       - name: Run tests with coverage
         run: npm run test-cov
-        run: npm run report
+        
+      - run: npm run report
 
       - name: Verify report existing
         run: ls coverage/lcov.info
