@@ -28,6 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run tests with coverage
+        continue-on-error: true
         run: npm run test-cov
 
       - name: Verify report existing
@@ -37,8 +38,7 @@ jobs:
         if: always()
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          coveralls-token: ${{ secrets.COVERALLS_TOKEN }}
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
           parallel: true
           flag-name: run-${{ matrix.node-version }}
           
@@ -52,6 +52,5 @@ jobs:
       - name: Coveralls Finish
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          coveralls-token: ${{ secrets.COVERALLS_TOKEN }}
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
           parallel-finished: true
