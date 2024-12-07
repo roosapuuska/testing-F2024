@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-"scripts": {
-  "test": "jest",
-  "test-cov": "jest --passWithNoTests",
-  "report": "jest --passWithNoTests --coverageReporters=lcov"
-},
+  "scripts": {
+  "test": "jest",                  
+  "test-cov": "c8 jest",            
+  "report": "c8 report --reporter=text-lcov > coverage.lcov"
+  },
 
   "author": "",
   "license": "MIT",
