@@ -28,8 +28,8 @@ jobs:
         run: npm ci
 
       - name: Run tests with coverage
-        continue-on-error: true
         run: npm run test-cov
+        run: npm run report
 
       - name: Verify report existing
         run: ls coverage/lcov.info
