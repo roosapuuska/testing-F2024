@@ -15,7 +15,6 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
 
     steps:
-      - name: Checkout repository
       - uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -26,7 +25,7 @@ jobs:
         
       - run: npm ci
       - run: npm test -- --coverage
-      
+
       - name: Parallel Coveralls
         if: always()
         uses: coverallsapp/github-action@master

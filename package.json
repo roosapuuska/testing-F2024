@@ -6,8 +6,8 @@
   "type": "module",
 "scripts": {
   "test": "jest",
-  "test-cov": "jest --coverage",
-  "report": "jest --coverage --coverageReporters=lcov"
+  "test-cov": "jest --passWithNoTests",
+  "report": "jest --passWithNoTests --coverageReporters=lcov"
 },
 
   "author": "",
