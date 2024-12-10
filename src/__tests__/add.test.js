@@ -23,11 +23,11 @@ describe('add', () => {
     });
   
     test('adds floating-point numbers', () => {
-      expect(add(1.1, 2.2)).toBeCloseTo(3.3); // Käytä toBeCloseTo kelluville pisteille
+      expect(add(1.1, 2.2)).toBeCloseTo(3.3); 
     });
   
     test('returns 0 when no arguments are passed', () => {
-      expect(add()).toBe(0); // Perustuu `createMathOperation`-funktion oletuskäyttäytymiseen
+      expect(add()).toBe(0); 
     });
   
     test('returns the single number if one argument is passed', () => {

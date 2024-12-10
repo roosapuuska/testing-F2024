@@ -8,13 +8,13 @@ describe('toString', () => {
     isSymbol.mockReset();
   });
 
-  /*test('converts null to an empty string', () => {
+  test('converts null to an empty string', () => {
     expect(toString(null)).toBe('');
-  });*/
+  });
 
-  /*test('converts undefined to an empty string', () => {
+  test('converts undefined to an empty string', () => {
     expect(toString(undefined)).toBe('');
-  });*/
+  });
 
   test('converts a number to a string', () => {
     expect(toString(123)).toBe('123');
@@ -52,10 +52,10 @@ describe('toString', () => {
     expect(toString(obj)).toBe('object');
   });
 
- /* test('handles values without a toString method gracefully', () => {
-    const obj = Object.create(null); // Object without a toString method
+  test('handles values without a toString method gracefully', () => {
+    const obj = Object.create(null); 
     expect(toString(obj)).toBe('[object Object]');
-  });*/
+  });
 
   test('converts boolean values to strings', () => {
     expect(toString(true)).toBe('true');

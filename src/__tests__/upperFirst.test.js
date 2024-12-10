@@ -33,8 +33,8 @@ describe('upperFirst.js', () => {
         expect(upperFirst('!?hello')).toBe('!?hello');
     })
 
-   /* test('Should not work, when input is not string', () => {
+    test('Should not work, when input is not string', () => {
         expect(upperFirst(1.23)).toBe(1.23);
         expect(upperFirst(12)).toBe(12);
-    })*/
+    })
 })

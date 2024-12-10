@@ -18,20 +18,20 @@ describe('eq', () => {
     expect(eq(true, true)).toBe(true);
   });
 
-  /*test('returns false for primitive values with different types', () => {
+  test('returns false for primitive values with different types', () => {
     expect(eq('1', 1)).toBe(false);
     expect(eq(true, 1)).toBe(false);
-  });*/
+  });
 
   test('returns true for NaN compared to NaN', () => {
     expect(eq(NaN, NaN)).toBe(true);
   });
 
-  /*test('returns false for primitive value and its object equivalent', () => {
+  test('returns false for primitive value and its object equivalent', () => {
     expect(eq('a', Object('a'))).toBe(false);
     expect(eq(1, Object(1))).toBe(false);
     expect(eq(true, Object(true))).toBe(false);
-  });*/
+  });
 
   test('returns true for both values being undefined', () => {
     expect(eq(undefined, undefined)).toBe(true);
@@ -41,9 +41,9 @@ describe('eq', () => {
     expect(eq(null, null)).toBe(true);
   });
 
-  /*test('returns false for null and undefined comparison', () => {
+  test('returns false for null and undefined comparison', () => {
     expect(eq(null, undefined)).toBe(false);
-  });*/
+  });
 
   test('returns true for 0 and -0 (SameValueZero comparison)', () => {
     expect(eq(0, -0)).toBe(true);

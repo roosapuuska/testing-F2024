@@ -31,15 +31,15 @@ describe('ceil', () => {
     expect(ceil(7.4, 0)).toBe(8);
   });
 
-/*  test('handles edge cases for precision and numbers', () => {
+  test('handles edge cases for precision and numbers', () => {
     expect(ceil(0)).toBe(0); 
     expect(ceil(Number.MIN_VALUE)).toBe(1); 
     expect(ceil(Number.MAX_VALUE, -300)).toBe(Number.MAX_VALUE); 
-  });*/
+  });
 
-  /*test('returns NaN for invalid inputs', () => {
+  test('returns NaN for invalid inputs', () => {
     expect(ceil('string')).toBeNaN();
     expect(ceil(undefined)).toBeNaN();
     expect(ceil(null)).toBeNaN();
-  });*/
+  });
 });

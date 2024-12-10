@@ -10,11 +10,11 @@ describe('filter', () => {
     expect(result).toEqual([{ user: 'barney', active: true }]);
   });
 
-  /*test('returns an empty array when no elements match the predicate', () => {
+  test('returns an empty array when no elements match the predicate', () => {
     const numbers = [1, 2, 3, 4];
     const result = filter(numbers, (n) => n > 10);
     expect(result).toEqual([]);
-  });*/
+  });
 
   test('returns the full array if all elements match the predicate', () => {
     const numbers = [1, 2, 3, 4];
@@ -22,16 +22,16 @@ describe('filter', () => {
     expect(result).toEqual([1, 2, 3, 4]);
   });
 
- /* test('handles null or undefined arrays', () => {
+  test('handles null or undefined arrays', () => {
     expect(filter(null, () => true)).toEqual([]);
     expect(filter(undefined, () => true)).toEqual([]);
-  });*/
+  });
 
-  /*test('handles invalid predicate gracefully', () => {
+  test('handles invalid predicate gracefully', () => {
     const numbers = [1, 2, 3];
     const result = filter(numbers, null); 
     expect(result).toEqual([]);
-  });*/
+  });
 
   test('passes value, index, and array to the predicate', () => {
     const array = [10, 20, 30];
@@ -52,6 +52,6 @@ describe('filter', () => {
     const numbers = [1, 2, 3, 4];
     const copy = [...numbers];
     filter(numbers, (n) => n % 2 === 0);
-    expect(numbers).toEqual(copy); // Original array remains unchanged
+    expect(numbers).toEqual(copy); 
   });
 });
