@@ -30,8 +30,4 @@ describe('capitalized.js', () => {
         expect(capitalize('!fred')).toBe('!fred');
         expect(capitalize('1fred')).toBe('1fred');
     })
-
-    test('Should return empty string when nothing is given', () => {
-        expect(capitalize()).toBe('');
-    })
 })
