@@ -23,26 +23,27 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-        
+
       - name: Install dependencies
         run: npm ci
 
       - name: Run tests with coverage
         run: npm run test-cov
-        
-      - run: npm run report
 
-      - name: Verify report existing
-        run: ls coverage/lcov.info
+      - name: Generate lcov report
+        run: npm run report
 
-      - name: Parallel Coveralls
+      - name: Verify lcov report exists
+        run: ls -lah coverage/lcov.info
+
+      - name: Upload to Coveralls
         if: always()
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.COVERALLS_TOKEN }}
+          path-to-lcov: coverage/lcov.info
           parallel: true
           flag-name: run-${{ matrix.node-version }}
-          
 
   coveralls:
     name: Coveralls Finish
@@ -50,7 +51,7 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: Coveralls Finish
+      - name: Finalize Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.COVERALLS_TOKEN }}
