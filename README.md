@@ -26,7 +26,7 @@ Jest is our choice so the test folder can be found under `__tests__` folder with
 To reproduce and run tests on your own local machine, here is a list to follow:
 
 First you should install [Node.JS](https://nodejs.org/en/).
-We are ensuring with our testing pipeline that these tests work with versions 14, 16 and 18.
+We are ensuring with our testing pipeline that these tests work with version 18.
 
 Then follow these steps:
 
