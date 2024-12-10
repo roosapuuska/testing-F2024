@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "test-cov": "c8 jest",
-    "report": "c8 report --reporter=text-lcov > coverage.lcov"
+    "report": "c8 report --reporter=text-lcov > coverage/lcov.info"
   },
   "author": "",
   "license": "MIT",
@@ -16,15 +16,13 @@
     "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
     "c8": "^10.1.2",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "coveralls": "^3.1.1"
   },
   "jest": {
     "transform": {
       "^.+\\.js$": "babel-jest"
-    },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+    }
   },
   "c8": {
     "include": [
