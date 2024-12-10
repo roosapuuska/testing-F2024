@@ -10,18 +10,14 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: 18.x
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.x
           cache: "npm"
         
       - name: Install dependencies
@@ -38,7 +34,7 @@ jobs:
         with:
           github-token: ${{ secrets.COVERALLS_TOKEN }}
           parallel: true
-          flag-name: run-${{ matrix.node-version }}
+          flag-name: run-18.x
           
 
   coveralls:
